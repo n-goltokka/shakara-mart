@@ -18,3 +18,4 @@ Without a properly designed database, the company could experience duplicated cu
 The proposed database will provide structured storage, enforce relationships between records and support reliable transaction processing. 
 
 
+The objective is to create a PostgreSQL database that will store Shakara Mart's customers, products, orders, payments and inventory.
