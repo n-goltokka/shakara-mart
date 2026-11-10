@@ -105,4 +105,33 @@ ALTER TABLE products
     CHECK (sku = UPPER(sku));  
     
     
+-- check SKU data validation and acceptance 
+SELECT
+    sku,
+    sku = UPPER(sku) AS passes_uppercase_rule
+FROM (
+    VALUES
+        ('LAP-HP-450'),
+        ('lap-hp-450'),
+        ('Lap-HP-450'),
+        ('ACC-MOU-001')
+) AS test_data(sku); 
 
+-- RESULT 
+-- "LAP-HP-450"	true
+-- "lap-hp-450"	false
+-- "Lap-HP-450"	false
+-- "ACC-MOU-001"	true
+
+
+-- Verify a product exists 
+SELECT
+    product_id,
+    product_name,
+    sku,
+    unit_price,
+    stock_quantity
+FROM products; 
+
+-- RESULT 
+-- 1	"HP EliteBook 1030 G2"	"LAP-HP-EBG2"	450000.00	10 
